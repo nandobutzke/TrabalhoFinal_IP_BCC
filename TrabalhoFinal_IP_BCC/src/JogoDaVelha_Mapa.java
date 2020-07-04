@@ -1,12 +1,12 @@
 
 public class JogoDaVelha_Mapa {
 
-  public static char[][] mapa= new char[3][3];
+  public static char[][] mapa = new char[3][3];
 	    
-	    public void limpaMapa(){
+	    public static void limpaMapa(){
 	        for(int linha=0 ; linha<3 ; linha++)
 	            for(int coluna=0 ; coluna<3 ; coluna++)
-	                mapa[linha][coluna]=0;
+	                mapa[linha][coluna] = 0;
 	    }
 	    
 	    public static void desenha(int jogada){
@@ -14,8 +14,8 @@ public class JogoDaVelha_Mapa {
 	        for(int linha=0 ; linha<3 ; linha++){
 	        	
 	            for(int coluna=0 ; coluna<3 ; coluna++){
-	                
-	                if(mapa[linha][coluna] == 'X') {
+
+	            	/* if(mapa[linha][coluna] == 'X') {
 	                    System.out.print(mapa);
 	                }
 	                if(mapa[linha][coluna] == 'O') {
@@ -23,10 +23,12 @@ public class JogoDaVelha_Mapa {
 	                }
 	                if(mapa[linha][coluna] == ' ') {
 	                    System.out.print(mapa);
-	                }
-	                if(coluna==0 || coluna==1)
+	                } */
+
+	            	if(coluna == 0 || coluna == 1)
 	                    System.out.print(" | ");
-	            }
+	            	}
+	            	 						
 	            System.out.println();
 	        }
 	                
@@ -46,17 +48,14 @@ public class JogoDaVelha_Mapa {
 
 	 
 
-	    public int checaLinhas(){
+	    public static int checaLinhas(){
 	        for(int linha=0 ; linha<3 ; linha++){
-
-	 
-
+	        	
 	            if( (mapa[linha][0] + mapa[linha][1] + mapa[linha][2]) == -3)
 	                return -1;
 	            if( (mapa[linha][0] + mapa[linha][1] + mapa[linha][2]) == 3)
 	                return 1;
 	        }
-	        
 	        return 0;
 	                
 	    }
@@ -94,7 +93,7 @@ public class JogoDaVelha_Mapa {
 	    public static boolean ganhou(char jogador){
 	        for(int linha=0 ; linha<3 ; linha++)
 	            for(int coluna=0 ; coluna<3 ; coluna++)
-	                if( mapa[linha][coluna]==0 )
+	                if( mapa[linha][coluna] == 0 )
 	                    return false;
 	        return true;
 	    }
