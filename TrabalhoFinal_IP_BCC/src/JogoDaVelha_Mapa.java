@@ -1,13 +1,16 @@
 
 public class JogoDaVelha_Mapa {
-
-  public static char[][] mapa = new char[3][3];
+	  public static char[][] mapa = new char[3][3];
 	    
 	    public static void limpaMapa(){
 	        for(int linha=0 ; linha<3 ; linha++)
 	            for(int coluna=0 ; coluna<3 ; coluna++)
 	                mapa[linha][coluna] = 0;
 	    }
+	    
+	    public static int sortear(int inicio, int fim) {
+			return (int) ((Math.random()*fim)-inicio);
+		}
 	    
 	    public static void desenha(int jogada){
 	        System.out.println();
@@ -48,7 +51,7 @@ public class JogoDaVelha_Mapa {
 
 	 
 
-	    public static int checaLinhas(){
+	    public int checaLinhas(){
 	        for(int linha=0 ; linha<3 ; linha++){
 	        	
 	            if( (mapa[linha][0] + mapa[linha][1] + mapa[linha][2]) == -3)
@@ -60,11 +63,9 @@ public class JogoDaVelha_Mapa {
 	                
 	    }
 	    
-	    public static int checaColunas(){
+	    public int checaColunas(){
 	        for(int coluna=0 ; coluna<3 ; coluna++){
-
-	 
-
+	        	
 	            if( (mapa[0][coluna] + mapa[1][coluna] + mapa[2][coluna]) == -3)
 	                return -1;
 	            if( (mapa[0][coluna] + mapa[1][coluna] + mapa[2][coluna]) == 3)
@@ -75,7 +76,7 @@ public class JogoDaVelha_Mapa {
 	                
 	    }
 	    
-	    public static int checaDiagonais(){
+	    public int checaDiagonais(){
 	        if( (mapa[0][0] + mapa[1][1] + mapa[2][2]) == -3)
 	            return -1;
 	        if( (mapa[0][0] + mapa[1][1] + mapa[2][2]) == 3)
@@ -97,4 +98,5 @@ public class JogoDaVelha_Mapa {
 	                    return false;
 	        return true;
 	    }
+  
 }
