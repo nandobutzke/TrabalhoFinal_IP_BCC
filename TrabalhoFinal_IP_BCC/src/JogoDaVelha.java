@@ -18,9 +18,6 @@ public class JogoDaVelha {
 			JogoDaVelha_Jogador.joga(teclado);
 	    else if(sorteio == 2)
 	    	JogoDaVelha_PC.joga();
-		
-		
-
 	}
 	
 	public static void main(String[] args) {	
