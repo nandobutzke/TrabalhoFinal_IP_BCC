@@ -18,31 +18,37 @@ public class JogoDaVelha {
 			JogoDaVelha_Jogador.joga(teclado);
 	    else if(sorteio == 2)
 	    	JogoDaVelha_PC.joga();
+		
+		if(JogoDaVelha_Jogador.checaGanhador() == true || JogoDaVelha_PC.checaGanhador() == true) {
+			
+			System.out.println("_____________________________");
+			
+	        System.out.println("Deseja jogar novamente (s/n)?");
+	        
+	        char jogarNovamente = teclado.next().charAt(0);
+	        
+	        if (jogarNovamente == 's') {
+	            JogoDaVelha.jogar(teclado);
+	        } else if (jogarNovamente == 'n') {
+	            System.out.print("--- FIM ---");
+	        }      
+		}
 	}
 	
 	public static void main(String[] args) {	
 		Scanner tec = new Scanner(System.in);
 		
-		
 		JogoDaVelha_Mapa mapaJogo = new JogoDaVelha_Mapa();
 		//JogoDaVelha_PC pc = new JogoDaVelha_PC(jogoMapa);
 		//JogoDaVelha_Jogador jogador = new JogoDaVelha_Jogador(jogoMapa);
 		
-		
 		JogoDaVelha.jogar(tec);
-		
-		
-		
 		
 		//jogoMapa.ganhou('x');
 		//jogar(tec);
 		//char jogarNovamente = tec.next().charAt(0);
 		
 		//if(jogarNovamente == 's')
-		
-		
-		
-		
 		
 		tec.close();
 	}
