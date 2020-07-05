@@ -1,7 +1,7 @@
 
 public class JogoDaVelha_PC {
 
- public JogoDaVelha_Mapa mapa;
+ 		public JogoDaVelha_Mapa mapa;
 		public char letra = 'O';
 		
 		public JogoDaVelha_PC(JogoDaVelha_Mapa mapa) {
