@@ -1,6 +1,7 @@
 
 public class JogoDaVelha_Mapa {
-	  public static char[][] mapa = new char[3][3];
+
+	    public static char[][] mapa = new char[3][3];
 	    
 	    public static void limpaMapa(){
 	        for(int linha=0 ; linha<3 ; linha++)
@@ -49,9 +50,7 @@ public class JogoDaVelha_Mapa {
 	        
 	    }
 
-	 
-
-	    public int checaLinhas(){
+	    public static int checaLinhas(){
 	        for(int linha=0 ; linha<3 ; linha++){
 	        	
 	            if( (mapa[linha][0] + mapa[linha][1] + mapa[linha][2]) == -3)
@@ -63,20 +62,17 @@ public class JogoDaVelha_Mapa {
 	                
 	    }
 	    
-	    public int checaColunas(){
+	    public static int checaColunas(){
 	        for(int coluna=0 ; coluna<3 ; coluna++){
-	        	
+
 	            if( (mapa[0][coluna] + mapa[1][coluna] + mapa[2][coluna]) == -3)
 	                return -1;
 	            if( (mapa[0][coluna] + mapa[1][coluna] + mapa[2][coluna]) == 3)
 	                return 1;
-	        }
-	        
-	        return 0;
-	                
+	        }      
+	        return 0;                
 	    }
-	    
-	    public int checaDiagonais(){
+	    public static int checaDiagonais(){
 	        if( (mapa[0][0] + mapa[1][1] + mapa[2][2]) == -3)
 	            return -1;
 	        if( (mapa[0][0] + mapa[1][1] + mapa[2][2]) == 3)
@@ -89,14 +85,13 @@ public class JogoDaVelha_Mapa {
 	        return 0;
 	    }
 
-	 
-
 	    public static boolean ganhou(char jogador){
 	        for(int linha=0 ; linha<3 ; linha++)
 	            for(int coluna=0 ; coluna<3 ; coluna++)
 	                if( mapa[linha][coluna] == 0 )
 	                    return false;
 	        return true;
-	    }
-  
+	   }
 }
+
+
