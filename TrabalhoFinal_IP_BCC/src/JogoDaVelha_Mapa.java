@@ -92,6 +92,32 @@ public class JogoDaVelha_Mapa {
 	                    return false;
 	        return true;
 	   }
+	
+	 public boolean Jogar(){
+	    while (ganhou() == 0 ){
+		    System.out.println("------------------");
+		    System.out.println("\nJogada "+rodada);
+		    System.out.println("É a vez do "+vez);
+
+		    if(vez == 1)
+			Jogador.jogar(mapa);
+		    else
+			JogadorPC.jogar(mapa);
+
+
+		    if(checaLinhas() == 1 && checaColunas() == 1 && checadiagonais() == 1 
+			    && checaLinhas() == -1 && checaColunas() == -1 && checadiagonais() == -1)
+			System.out.println("Mapa Completo. Jogo empatado");
+
+		    vez++;
+		    rodada++;
+
+
+
+			return true;
+		    }
+	  }  
 }
+
 
 
