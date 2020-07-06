@@ -1,7 +1,7 @@
 
 public class JogoDaVelha_PC {
 
- 		public JogoDaVelha_Mapa mapa;
+		public JogoDaVelha_Mapa mapa;
 		public char letra = 'O';
 		
 		public JogoDaVelha_PC(JogoDaVelha_Mapa mapa) {
@@ -16,7 +16,7 @@ public class JogoDaVelha_PC {
 			} while(letra[linha][coluna] != 0);
 		}
 		
-			public static int vez() {
+		public static int vez() {
 			
 			int testeJogada = JogoDaVelha_PC.vez();
 			
@@ -43,7 +43,28 @@ public class JogoDaVelha_PC {
 	                verify = false;
 	            }
 	        } while (verify == false);
-	       
-	        return true;
+	        	return true;
+			}
+		
+		public static boolean checaGanhador(){
+		 	
+	 		if(JogoDaVelha_Mapa.checaLinhas() == 1 && JogoDaVelha_Mapa.checaColunas() == 1 && JogoDaVelha_Mapa.checaDiagonais() == 1)
+		        return true;
+		    
+		    if(JogoDaVelha_Mapa.checaLinhas() == -1 && JogoDaVelha_Mapa.checaColunas() == -1 && JogoDaVelha_Mapa.checaDiagonais() == -1)
+		        return false;
+	    
+		    return false;
 		}
+		
+		/*public static int checaGanhador(){
+		 	
+	 		if(JogoDaVelha_Mapa.checaLinhas() == 1 && JogoDaVelha_Mapa.checaColunas() == 1 && JogoDaVelha_Mapa.checaDiagonais() == 1)
+		        return 1;
+		    
+		    if(JogoDaVelha_Mapa.checaLinhas() == -1 && JogoDaVelha_Mapa.checaColunas() == -1 && JogoDaVelha_Mapa.checaDiagonais() == -1)
+		        return -1;
+	    
+		    return 0;
+		} */
 }
