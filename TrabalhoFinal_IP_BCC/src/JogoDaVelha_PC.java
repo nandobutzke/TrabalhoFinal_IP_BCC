@@ -1,19 +1,29 @@
-
 public class JogoDaVelha_PC {
 
 		public JogoDaVelha_Mapa mapa;
-		public char letra = 'O';
+		public static char letra = 'O';		//Usar letra 'O'
 		
 		public JogoDaVelha_PC(JogoDaVelha_Mapa mapa) {
-			char linha = 0;
-			char coluna = 0;
-			char letra[][] = new char[linha][coluna];
 			
 			
-			do {
-				linha = (char) Math.random();
-				coluna = (char) Math.random();
-			} while(letra[linha][coluna] != 0);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+//			char linha = 0;
+//			char coluna = 0;
+//			char letra[][] = new char[linha][coluna];
+//			
+//			
+//			do {
+//				linha = (char) Math.random();
+//				coluna = (char) Math.random();
+//			} while(letra[linha][coluna] != 0);
 		}
 		
 		public static int vez() {
@@ -56,6 +66,7 @@ public class JogoDaVelha_PC {
 	    
 		    return false;
 		}
+		
 		
 		/*public static int checaGanhador(){
 		 	
