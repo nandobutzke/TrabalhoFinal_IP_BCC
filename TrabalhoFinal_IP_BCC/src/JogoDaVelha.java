@@ -2,75 +2,83 @@ import java.util.Scanner;
 
 public class JogoDaVelha {
 
-	public static JogoDaVelha_Mapa jogoMapa;
-	public JogoDaVelha_PC jogoPC;
-	public JogoDaVelha_Jogador jogoJogador;
-	
-	private static void jogar(Scanner teclado) {
-		
-		JogoDaVelha_Mapa.checaColunas();
-		JogoDaVelha_Mapa.checaDiagonais();
-		JogoDaVelha_Mapa.checaLinhas();
-		JogoDaVelha_Mapa.jogar(0, 0, 'X');
-		JogoDaVelha_Mapa.ganhou('X');
-		
-		
-		//-----------------------------------------------------------------
-		
-		JogoDaVelha_Mapa.sortear(1,2);
-		
-		//------------------------------------------------------------------
-		
-		JogoDaVelha_Mapa.desenha(1);
-		
-		//-------------------------------------------------------------------
-		
-		JogoDaVelha_Mapa.limpaMapa();
-		
-		//--------------------------------------------------------------------
-		
-		int sorteio;
-		sorteio = JogoDaVelha_Mapa.sortear(1,2);
-		
-		if(sorteio == 1)
-			JogoDaVelha_Jogador.joga(teclado);
-	    else if(sorteio == 2)
-	    	JogoDaVelha_PC.joga();
-		
-		//-----------------------------------------------------------
-		
-		if(JogoDaVelha_Jogador.checaGanhador() == true || JogoDaVelha_PC.checaGanhador() == true) {
-			
-			System.out.println("_____________________________");
-			
-	        System.out.println("Deseja jogar novamente (s/n)?");
-	        
-	        char jogarNovamente = teclado.next().charAt(0);
-	        
-	        if (jogarNovamente == 's') {
-	            JogoDaVelha.jogar(teclado);
-	        } else if (jogarNovamente == 'n') {
-	            System.out.print("--- FIM ---");
-	        }      
-		}
-	}
+	private static JogoDaVelha_Mapa jogoMapa;
+	private static JogoDaVelha_PC jogoPC;
+	private static JogoDaVelha_Jogador jogoJogador;
 	
 	public static void main(String[] args) {	
 		Scanner tec = new Scanner(System.in);
-		
-		//JogoDaVelha_Mapa mapaJogo = new JogoDaVelha_Mapa();
-		//JogoDaVelha_PC pc = new JogoDaVelha_PC(jogoMapa);
-		//JogoDaVelha_Jogador jogador = new JogoDaVelha_Jogador(jogoMapa);
-		
 		JogoDaVelha.jogar(tec);
 		
-		//jogoMapa.ganhou('x');
-		//jogar(tec);
-		//char jogarNovamente = tec.next().charAt(0);
-		
-		//if(jogarNovamente == 's')
+		jogoJogador = new JogoDaVelha_Jogador(jogoMapa);
+		jogoPC = new JogoDaVelha_PC(jogoMapa);
+		jogoMapa = new JogoDaVelha_Mapa();
 		
 		tec.close();
 	}
+	
+	
+	private static void jogar(Scanner teclado) {
+		
+		jogoMapa.limpaMapa();
+		int sortear = jogoMapa.sortear(0, 2);
+		
+		jogoMapa.desenha(1);
+		
+		for(int jogada = 0; jogada < 10; jogada++) {
+			
+			if(jogoMapa.ganhou('X')) {
+				System.out.println("Jogador ganhou a partida =)");
+				break;
+			}
+			
+			if(jogoMapa.ganhou('O')) {
+				System.out.println("PC ganhou a partida =(");
+				break;
+			}
+			
+			if(sortear == 0) {
+				jogoPC.joga();
+				sortear++;
+			}
+			
+			if(sortear == 1) {
+				jogoJogador.joga(teclado);
+				sortear--;
+			}
+			
+			jogoMapa.desenha(jogada);
+		
+		}
+		
+		if(!jogoMapa.ganhou('O') && !jogoMapa.ganhou('X')) {
+			System.out.println("O jogo empatou!!");
+			
+			System.out.println("_____________________________");
+			
+		    System.out.println("Deseja jogar novamente (s/n)?");
+		        
+		    char jogarNovamente = teclado.next().charAt(0);
+		       
+		    if (jogarNovamente == 's') {
+		            JogoDaVelha.jogar(teclado);
+		    } else if (jogarNovamente == 'n') {
+		            System.out.print("--- FIM ---");
+		    } 
+		}
 
+	
+		
+		  System.out.println("_____________________________");
+		  
+	      System.out.println("Deseja jogar novamente (s/n)?");
+	        
+	      char jogarNovamente = teclado.next().charAt(0);
+	      
+	      if (jogarNovamente == 's') {
+	            JogoDaVelha.jogar(teclado);
+	      } else if (jogarNovamente == 'n') {
+	            System.out.print("--- FIM ---");
+	      }
+	}
 }
