@@ -3,18 +3,25 @@ public class JogoDaVelha_Mapa {
 
 	    public static char[][] mapa = new char[3][3];
 	    
+	    
+	    
 	    public static void limpaMapa(){
 	        for(int linha=0 ; linha<3 ; linha++)
 	            for(int coluna=0 ; coluna<3 ; coluna++)
 	                mapa[linha][coluna] = 0;
 	    }
 	    
+	    
+	    
 	    public static int sortear(int inicio, int fim) {
 			return (int) ((Math.random()*fim)-inicio);
 		}
 	    
+	    
+	    
 	    public static void desenha(int jogada){
 	        System.out.println();
+	        
 	        for(int linha=0 ; linha<3 ; linha++){
 	        	
 	            for(int coluna=0 ; coluna<3 ; coluna++){
@@ -38,9 +45,13 @@ public class JogoDaVelha_Mapa {
 	                
 	    }
 	    
+	    
+	    
 	    public int getPosicao(int[] tentativa){
 	        return mapa[tentativa[0]][tentativa[1]];
 	    }
+	    
+	    
 	    
 	    public static void setPosicao(int[] tentativa, int jogador){
 	        if(jogador == 1)
@@ -50,6 +61,8 @@ public class JogoDaVelha_Mapa {
 	        
 	    }
 
+	    
+	    
 	    public static int checaLinhas(){
 	        for(int linha=0 ; linha<3 ; linha++){
 	        	
@@ -62,6 +75,8 @@ public class JogoDaVelha_Mapa {
 	                
 	    }
 	    
+	    
+	    
 	    public static int checaColunas(){
 	        for(int coluna=0 ; coluna<3 ; coluna++){
 
@@ -72,6 +87,8 @@ public class JogoDaVelha_Mapa {
 	        }      
 	        return 0;                
 	    }
+	    
+	    
 	    public static int checaDiagonais(){
 	        if( (mapa[0][0] + mapa[1][1] + mapa[2][2]) == -3)
 	            return -1;
@@ -84,7 +101,29 @@ public class JogoDaVelha_Mapa {
 	        
 	        return 0;
 	    }
+	    
+	    
+	    
+	    public static boolean jogar(int l, int c, char jogador) {
 
+			if(mapa[l][c] == 0) {
+				JogoDaVelha_Jogador.letra = jogador;
+				return true;
+			} else {
+				return false;
+			}
+			
+//			if(mapa[l][c] == 0) {
+//				JogoDaVelha_PC.letra = jogador;
+//				return true;
+//			} else {
+//				return false;
+//			}
+			
+		}
+
+	    
+	    
 	    public static boolean ganhou(char jogador){
 	        for(int linha=0 ; linha<3 ; linha++)
 	            for(int coluna=0 ; coluna<3 ; coluna++)
@@ -92,32 +131,6 @@ public class JogoDaVelha_Mapa {
 	                    return false;
 	        return true;
 	   }
-	
-	 public boolean Jogar(){
-	    while (ganhou() == 0 ){
-		    System.out.println("------------------");
-		    System.out.println("\nJogada "+rodada);
-		    System.out.println("É a vez do "+vez);
-
-		    if(vez == 1)
-			Jogador.jogar(mapa);
-		    else
-			JogadorPC.jogar(mapa);
-
-
-		    if(checaLinhas() == 1 && checaColunas() == 1 && checadiagonais() == 1 
-			    && checaLinhas() == -1 && checaColunas() == -1 && checadiagonais() == -1)
-			System.out.println("Mapa Completo. Jogo empatado");
-
-		    vez++;
-		    rodada++;
-
-
-
-			return true;
-		    }
-	  }  
+	    
+	   
 }
-
-
-
