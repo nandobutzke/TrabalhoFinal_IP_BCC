@@ -2,132 +2,45 @@
 public class JogoDaVelha_Mapa {
 
 	    public static char[][] mapa = new char[3][3];
-	    
-	    
-	    
-	    public static void limpaMapa(){
-	        for(int linha=0 ; linha<3 ; linha++)
-	            for(int coluna=0 ; coluna<3 ; coluna++)
-	                mapa[linha][coluna] = 0;
-	    }
-	    
-	    
-	    
-	    public static int sortear(int inicio, int fim) {
+
+	    public int sortear(int inicio, int fim) {
 			return (int) ((Math.random()*fim)-inicio);
 		}
 	    
-	    
-	    
-	    public static void desenha(int jogada){
-	        System.out.println();
+	    public void limpaMapa(){
+	        for(int linha=0 ; linha < 3 ; linha++)
+	            for(int coluna=0 ; coluna<3 ; coluna++)
+	                mapa[linha][coluna] = ' ';
+	    }
+
+	    public void desenha(int jogada){
 	        
-	        for(int linha=0 ; linha<3 ; linha++){
-	        	
-	            for(int coluna=0 ; coluna<3 ; coluna++){
-
-	            	/* if(mapa[linha][coluna] == 'X') {
-	                    System.out.print(mapa);
-	                }
-	                if(mapa[linha][coluna] == 'O') {
-	                    System.out.println(mapa);
-	                }
-	                if(mapa[linha][coluna] == ' ') {
-	                    System.out.print(mapa);
-	                } */
-
-	            	if(coluna == 0 || coluna == 1)
-	                    System.out.print(" | ");
-	            	}
-	            	 						
-	            System.out.println();
-	        }
-	                
-	    }
-	    
-	    
-	    
-	    public int getPosicao(int[] tentativa){
-	        return mapa[tentativa[0]][tentativa[1]];
-	    }
-	    
-	    
-	    
-	    public static void setPosicao(int[] tentativa, int jogador){
-	        if(jogador == 1)
-	            mapa[tentativa[0]][tentativa[1]] = 1;
-	        else
-	            mapa[tentativa[0]][tentativa[1]] = 1;
+	        System.out.print("-------------");
+	        System.out.println(" jogada: " + jogada);
+	        System.out.println("| " + mapa[0][0] + " | " + mapa[0][1] + " | " + mapa[0][2] + " | ");
+	        System.out.println("-------------");
+	        System.out.println("| " + mapa[1][0] + " | " + mapa[1][1] + " | " + mapa[1][2] + " | ");
+	        System.out.println("-------------");
+	        System.out.println("| " + mapa[2][0] + " | " + mapa[2][1] + " | " + mapa[2][2] + " | ");
+	        System.out.println("-------------");
 	        
 	    }
 
-	    
-	    
-	    public static int checaLinhas(){
-	        for(int linha=0 ; linha<3 ; linha++){
-	        	
-	            if( (mapa[linha][0] + mapa[linha][1] + mapa[linha][2]) == -3)
-	                return -1;
-	            if( (mapa[linha][0] + mapa[linha][1] + mapa[linha][2]) == 3)
-	                return 1;
-	        }
-	        return 0;
-	                
-	    }
-	    
-	    
-	    
-	    public static int checaColunas(){
-	        for(int coluna=0 ; coluna<3 ; coluna++){
+	    public boolean jogar(int l, int c, char jogador) {
 
-	            if( (mapa[0][coluna] + mapa[1][coluna] + mapa[2][coluna]) == -3)
-	                return -1;
-	            if( (mapa[0][coluna] + mapa[1][coluna] + mapa[2][coluna]) == 3)
-	                return 1;
-	        }      
-	        return 0;                
-	    }
-	    
-	    
-	    public static int checaDiagonais(){
-	        if( (mapa[0][0] + mapa[1][1] + mapa[2][2]) == -3)
-	            return -1;
-	        if( (mapa[0][0] + mapa[1][1] + mapa[2][2]) == 3)
-	            return 1;
-	        if( (mapa[0][2] + mapa[1][1] + mapa[2][0]) == -3)
-	            return -1;
-	        if( (mapa[0][2] + mapa[1][1] + mapa[2][0]) == 3)
-	            return 1;
-	        
-	        return 0;
-	    }
-	    
-	    
-	    
-	    public static boolean jogar(int l, int c, char jogador) {
-
-			if(mapa[l][c] == 0) {
-				JogoDaVelha_Jogador.letra = jogador;
+			if(mapa[l][c] == ' ') {
+				mapa[l][c] = jogador;
 				return true;
 			} else {
 				return false;
 			}
-			
-//			if(mapa[l][c] == 0) {
-//				JogoDaVelha_PC.letra = jogador;
-//				return true;
-//			} else {
-//				return false;
-//			}
-			
+
 		}
 
-	    
-	    
-	    public static boolean ganhou(char jogador){
-	        for(int linha=0 ; linha<3 ; linha++)
+	    public boolean ganhou(char jogador){
+	        for(int linha = 0; linha < 3; linha++)
 	            for(int coluna=0 ; coluna<3 ; coluna++)
-	                if( mapa[linha][coluna] == 0 )
+	                if( mapa[linha][coluna] == ' ')
 	                    return false;
 	        return true;
 	   }
