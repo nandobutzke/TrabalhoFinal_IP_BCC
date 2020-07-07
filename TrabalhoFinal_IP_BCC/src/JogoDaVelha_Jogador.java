@@ -3,10 +3,20 @@ import java.util.Scanner;
 public class JogoDaVelha_Jogador {
 
 	public JogoDaVelha_Mapa mapa;
-    char letra = 'X';
+    public static char letra = 'X';				//Usar letra 'X'
     
     public JogoDaVelha_Jogador(JogoDaVelha_Mapa mapa) {
         
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     }
     
     public static boolean joga(Scanner teclado) {
