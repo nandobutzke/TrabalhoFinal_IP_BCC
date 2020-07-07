@@ -6,20 +6,10 @@ public class JogoDaVelha_Jogador {
     public static char letra = 'X';				//Usar letra 'X'
     
     public JogoDaVelha_Jogador(JogoDaVelha_Mapa mapa) {
-        
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
+        this.mapa = mapa;
     }
     
-    public static boolean joga(Scanner teclado) {
+    public boolean joga(Scanner teclado) {
         boolean verify;
         int row,
             col;
@@ -37,41 +27,5 @@ public class JogoDaVelha_Jogador {
         } while (verify == false);
         	return true;
         }
-
- 	
-	// --------------------------------
-	
-	public static int vez(){
-	    
-		int testeJogada = JogoDaVelha_Jogador.vez();
-		
-		if(testeJogada % 2 == 1)
-	        return 1;
-	    else
-	        return 2;
-		}
-	// ---------------------------------
-
- 	public static boolean checaGanhador(){
-	 	
- 		if(JogoDaVelha_Mapa.checaLinhas() == 1 && JogoDaVelha_Mapa.checaColunas() == 1 && JogoDaVelha_Mapa.checaDiagonais() == 1)
-	        return true;
-	    
-	    if(JogoDaVelha_Mapa.checaLinhas() == -1 && JogoDaVelha_Mapa.checaColunas() == -1 && JogoDaVelha_Mapa.checaDiagonais() == -1)
-	        return false;
-    
-	    return false;
- 	}
- 	
- 		/* public static int checaGanhador(){
-	 	
- 		if(JogoDaVelha_Mapa.checaLinhas() == 1 && JogoDaVelha_Mapa.checaColunas() == 1 && JogoDaVelha_Mapa.checaDiagonais() == 1)
-	        return 1;
-	    
-	    if(JogoDaVelha_Mapa.checaLinhas() == -1 && JogoDaVelha_Mapa.checaColunas() == -1 && JogoDaVelha_Mapa.checaDiagonais() == -1)
-	        return -1;
-    
-	    return 0; 
- 	} */
 
 }
