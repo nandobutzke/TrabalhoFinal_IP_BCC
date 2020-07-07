@@ -6,10 +6,28 @@ public class JogoDaVelha {
 	public JogoDaVelha_PC jogoPC;
 	public JogoDaVelha_Jogador jogoJogador;
 	
-	public static void jogar(Scanner teclado) {
+	private static void jogar(Scanner teclado) {
+		
+		JogoDaVelha_Mapa.checaColunas();
+		JogoDaVelha_Mapa.checaDiagonais();
+		JogoDaVelha_Mapa.checaLinhas();
+		JogoDaVelha_Mapa.jogar(0, 0, 'X');
+		JogoDaVelha_Mapa.ganhou('X');
+		
+		
+		//-----------------------------------------------------------------
+		
+		JogoDaVelha_Mapa.sortear(1,2);
+		
+		//------------------------------------------------------------------
+		
 		JogoDaVelha_Mapa.desenha(1);
 		
+		//-------------------------------------------------------------------
+		
 		JogoDaVelha_Mapa.limpaMapa();
+		
+		//--------------------------------------------------------------------
 		
 		int sorteio;
 		sorteio = JogoDaVelha_Mapa.sortear(1,2);
@@ -18,6 +36,8 @@ public class JogoDaVelha {
 			JogoDaVelha_Jogador.joga(teclado);
 	    else if(sorteio == 2)
 	    	JogoDaVelha_PC.joga();
+		
+		//-----------------------------------------------------------
 		
 		if(JogoDaVelha_Jogador.checaGanhador() == true || JogoDaVelha_PC.checaGanhador() == true) {
 			
@@ -38,7 +58,7 @@ public class JogoDaVelha {
 	public static void main(String[] args) {	
 		Scanner tec = new Scanner(System.in);
 		
-		JogoDaVelha_Mapa mapaJogo = new JogoDaVelha_Mapa();
+		//JogoDaVelha_Mapa mapaJogo = new JogoDaVelha_Mapa();
 		//JogoDaVelha_PC pc = new JogoDaVelha_PC(jogoMapa);
 		//JogoDaVelha_Jogador jogador = new JogoDaVelha_Jogador(jogoMapa);
 		
