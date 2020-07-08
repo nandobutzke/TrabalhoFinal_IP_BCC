@@ -4,28 +4,37 @@ public class JogoDaVelha_Jogador {
 
 	public JogoDaVelha_Mapa mapa;
     public static char letra = 'X';				//Usar letra 'X'
+    Scanner teclado = new Scanner(System.in);
+    
     
     public JogoDaVelha_Jogador(JogoDaVelha_Mapa mapa) {
         this.mapa = mapa;
     }
     
     public boolean joga(Scanner teclado) {
-        boolean verify;
-        int row,
-            col;
+    	
+    	mapa = new JogoDaVelha_Mapa();
+    	
+    	System.out.println("linha:");
+    	int linha = teclado.nextInt();
+    	System.out.println("coluna:");
+    	int coluna = teclado.nextInt();
 
-        do {
-            System.out.println("linha:");
-            row = teclado.nextInt();
-            System.out.println("coluna:");
-            col = teclado.nextInt();
-            if ((row <= 2) && (col <= 2)) {
-            verify = true;
-            } else {
-            verify = false;
-            }
-        } while (verify == false);
-        	return true;
-        }
-
-}
+    	boolean verificar = mapa.jogar(linha, coluna, letra);
+    	
+    	if(linha < 0 || linha > 2 || coluna < 0 || coluna > 2) {
+    		System.out.println("Fora da caixa!");
+    		joga(teclado);
+    		return false;
+    	}
+    	
+    	if(!verificar) {
+    		System.out.println("jogada inválida, campo ocupado");
+    		joga(teclado);
+    	}
+    	
+    	
+    	return true;
+    	
+    }
+}        	
