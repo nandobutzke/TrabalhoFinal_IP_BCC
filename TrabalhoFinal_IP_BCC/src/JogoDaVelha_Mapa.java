@@ -8,8 +8,8 @@ public class JogoDaVelha_Mapa {
 		}
 	    
 	    public void limpaMapa(){
-	        for(int linha=0 ; linha < 3 ; linha++)
-	            for(int coluna=0 ; coluna<3 ; coluna++)
+	        for(int linha = 0; linha < 3; linha++)
+	            for(int coluna = 0; coluna <3; coluna++)
 	                mapa[linha][coluna] = ' ';
 	    }
 
@@ -27,9 +27,11 @@ public class JogoDaVelha_Mapa {
 	    }
 
 	    public boolean jogar(int l, int c, char jogador) {
-
+	    	
+	    	
 			if(mapa[l][c] == ' ') {
 				mapa[l][c] = jogador;
+				System.out.println(jogador);
 				return true;
 			} else {
 				return false;
@@ -39,7 +41,7 @@ public class JogoDaVelha_Mapa {
 
 	    public boolean ganhou(char jogador){
 	        for(int linha = 0; linha < 3; linha++)
-	            for(int coluna=0 ; coluna<3 ; coluna++)
+	            for(int coluna = 0; coluna < 3 ; coluna++)
 	                if( mapa[linha][coluna] == ' ')
 	                    return false;
 	        return true;
