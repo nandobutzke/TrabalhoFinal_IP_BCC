@@ -50,6 +50,7 @@ public class JogoDaVelha {
 				JogoDaVelha.jogar(teclado);
 			} else if (jogarNovamente == 'n') {
 				System.out.print("--- FIM ---");
+				return;
 			}
 		}
 
@@ -88,3 +89,4 @@ public class JogoDaVelha {
 		tec.close();
 	}
 }
+
