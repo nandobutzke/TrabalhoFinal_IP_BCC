@@ -1,4 +1,3 @@
-
 public class JogoDaVelha_Mapa {
 
 	    public static char[][] mapa = new char[3][3];
@@ -27,11 +26,9 @@ public class JogoDaVelha_Mapa {
 	    }
 
 	    public boolean jogar(int l, int c, char jogador) {
-	    	
-	    	
+
 			if(mapa[l][c] == ' ') {
 				mapa[l][c] = jogador;
-				System.out.println(jogador);
 				return true;
 			} else {
 				return false;
@@ -40,11 +37,26 @@ public class JogoDaVelha_Mapa {
 		}
 
 	    public boolean ganhou(char jogador){
-	        for(int linha = 0; linha < 3; linha++)
-	            for(int coluna = 0; coluna < 3 ; coluna++)
-	                if( mapa[linha][coluna] == ' ')
-	                    return false;
-	        return true;
+	        //for(int linha = 0; linha < 3; linha++)
+	            //for(int coluna = 0; coluna < 3 ; coluna++)
+	                
+	    			//linha
+	    			if((mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[2][0] == jogador) ||
+	                	(mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[2][1] == jogador) ||
+	                	(mapa[0][2] == jogador && mapa[1][2] == jogador && mapa[2][2] == jogador))
+	                     return true;
+	                
+	    			//coluna
+	                if((mapa[0][0] == jogador && mapa[0][1] == jogador && mapa[0][2] == jogador) ||
+		                (mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[1][2] == jogador) ||
+		                (mapa[2][0] == jogador && mapa[2][1] == jogador && mapa[2][2] == jogador))
+		                 return true;
+	                
+	                //diagonal
+	                if((mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador) ||
+		                (mapa[2][0] == jogador && mapa[1][1] == jogador && mapa[0][2] == jogador))
+		                 return true;
+	        return false;
 	   }
 	    
 	   
