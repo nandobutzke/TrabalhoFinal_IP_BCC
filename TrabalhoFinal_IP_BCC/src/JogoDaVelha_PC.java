@@ -1,4 +1,3 @@
-
 public class JogoDaVelha_PC {
 
 	public JogoDaVelha_Mapa mapa;
@@ -12,11 +11,14 @@ public class JogoDaVelha_PC {
 	public boolean joga() {
 		
 		mapa = new JogoDaVelha_Mapa();
-    	
-    	System.out.println("linha:");
-    	int linha = (int) Math.random();
-    	System.out.println("coluna:");
-    	int coluna = (int) Math.random();
+		
+		int linha, coluna;
+
+		System.out.println("linha:");
+		linha = mapa.sortear(0, 2);
+		System.out.println("coluna:");
+		coluna = mapa.sortear(0, 2);
+		
 
     	boolean verificar = mapa.jogar(linha, coluna, letra);
     	
@@ -26,8 +28,11 @@ public class JogoDaVelha_PC {
     		return false;
     	}
     	
-    	if(verificar) {
+    	if(!verificar) {
     		System.out.println("jogada inválida, campo ocupado");
+    	}
+		
+    	if(!verificar) {
     		joga();
     	}
     	
