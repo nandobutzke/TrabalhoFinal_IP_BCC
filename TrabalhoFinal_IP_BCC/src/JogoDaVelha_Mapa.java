@@ -58,6 +58,5 @@ public class JogoDaVelha_Mapa {
 		                 return true;
 	        return false;
 	   }
-	    
-	   
 }
+
