@@ -4,7 +4,6 @@ public class JogoDaVelha_Jogador {
 
 	public JogoDaVelha_Mapa mapa;
     public static char letra = 'X';				//Usar letra 'X'
-    Scanner teclado = new Scanner(System.in);
     
     
     public JogoDaVelha_Jogador(JogoDaVelha_Mapa mapa) {
@@ -25,7 +24,6 @@ public class JogoDaVelha_Jogador {
     	if(linha < 0 || linha > 2 || coluna < 0 || coluna > 2) {
     		System.out.println("Fora da caixa!");
     		joga(teclado);
-    		return false;
     	}
     	
     	if(!verificar) {
