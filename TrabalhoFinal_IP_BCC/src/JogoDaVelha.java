@@ -22,6 +22,7 @@ public class JogoDaVelha {
 				System.out.println("PC ganhou a partida =(");
 				break;
 			}
+			
 
 			if (sortear == 0) {
 				jogoPC.joga();
@@ -50,7 +51,7 @@ public class JogoDaVelha {
 				JogoDaVelha.jogar(teclado);
 			} else if (jogarNovamente == 'n') {
 				System.out.print("--- FIM ---");
-				return;
+				jogoMapa.limpaMapa();
 			}
 		}
 
@@ -74,17 +75,11 @@ public class JogoDaVelha {
 		jogoPC = new JogoDaVelha_PC(jogoMapa);
 		jogoMapa = new JogoDaVelha_Mapa();
 
+		
+		
 		JogoDaVelha.jogar(tec);
 
-		int sorteio = jogoMapa.sortear(0, 2);
-
-		if (sorteio == 1) {
-			System.out.println("Jogador ..");
-			jogoJogador.joga(tec);
-		} else if (sorteio == 0) {
-			System.out.println("PC[,]");
-			jogoPC.joga();
-		}
+		
 
 		tec.close();
 	}
