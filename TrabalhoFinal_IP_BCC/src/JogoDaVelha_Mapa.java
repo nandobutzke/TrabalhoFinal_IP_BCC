@@ -1,8 +1,6 @@
 public class JogoDaVelha_Mapa {
     public static char[][] mapa = new char[3][3];
 
- 
-
     public int sortear(int inicio, int fim) {
         return (int) ((Math.random()*fim)-inicio);
     }
@@ -12,8 +10,6 @@ public class JogoDaVelha_Mapa {
             for(int coluna = 0; coluna <3; coluna++)
                 mapa[linha][coluna] = ' ';
     }
-
- 
 
     public void desenha(int jogada){
         
@@ -28,36 +24,28 @@ public class JogoDaVelha_Mapa {
         
     }
 
- 
-
     public boolean jogar(int l, int c, char jogador) {
 
- 
-
         if(mapa[l][c] == ' ') {
-            mapa[l][c] = jogador;
+        	mapa[l][c] = jogador;
             return true;
         } else {
             return false;
         }
 
- 
-
     }
-
- 
-
+    
     public boolean ganhou(char jogador){
         //for(int linha = 0; linha < 3; linha++)
             //for(int coluna = 0; coluna < 3 ; coluna++)
                 
-                //linha
+                //coluna
                 if((mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[2][0] == jogador) ||
                     (mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[2][1] == jogador) ||
                     (mapa[0][2] == jogador && mapa[1][2] == jogador && mapa[2][2] == jogador))
                      return true;
                 
-                //coluna
+                //linha
                 if((mapa[0][0] == jogador && mapa[0][1] == jogador && mapa[0][2] == jogador) ||
                     (mapa[1][0] == jogador && mapa[1][1] == jogador && mapa[1][2] == jogador) ||
                     (mapa[2][0] == jogador && mapa[2][1] == jogador && mapa[2][2] == jogador))
