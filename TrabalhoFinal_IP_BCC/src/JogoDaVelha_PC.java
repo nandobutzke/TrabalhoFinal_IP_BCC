@@ -1,3 +1,4 @@
+
 public class JogoDaVelha_PC {
 
  
@@ -12,19 +13,20 @@ public class JogoDaVelha_PC {
     
     public boolean joga() {
         
-        mapa = new JogoDaVelha_Mapa();
+    	
         
         int linha = mapa.sortear(0, 3);
         int coluna = mapa.sortear(0, 3);
         
-
- 
+        String posicaoPC = "PC[" + linha + "," + coluna + "]";
 
         boolean verificar = mapa.jogar(linha, coluna, letra);
         
         if(!verificar) {
             System.out.println("jogada do PC inválida, campo ocupado");
             joga();
+        } else {
+        	System.out.println(posicaoPC);
         }
         
 //        if(verificar) {
