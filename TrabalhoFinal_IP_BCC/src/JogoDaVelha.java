@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class JogoDaVelha {
     
-	private static JogoDaVelha_Mapa jogoMapa;
+    private static JogoDaVelha_Mapa jogoMapa;
     private static JogoDaVelha_PC jogoPC;
     private static JogoDaVelha_Jogador jogoJogador;
 
@@ -11,7 +11,7 @@ public class JogoDaVelha {
         int sorteio = jogoMapa.sortear(0, 2);
 
         for (int jogada = 1; jogada < 10; jogada++) {
-   
+           
             if (jogoMapa.ganhou('O')) {
                 System.out.println("... PC GANHOU!");
                 break;
@@ -38,7 +38,6 @@ public class JogoDaVelha {
         if(!jogoMapa.ganhou('O') && !jogoMapa.ganhou('X')) { 
             System.out.println("O jogo empatou!!");
 
-
             System.out.println("_____________________________");
 
             System.out.println("Deseja jogar novamente (s/n)?");
@@ -51,18 +50,19 @@ public class JogoDaVelha {
                 System.out.print("--- FIM ---");
                 jogoMapa.limpaMapa();
             }
-        }
+        } else {
         
-        System.out.println("_____________________________");
+            System.out.println("_____________________________");
 
-        System.out.println("Deseja jogar novamente (s/n)?");
+            System.out.println("Deseja jogar novamente (s/n)?");
 
-        char jogarNovamente = teclado.next().charAt(0);
+            char jogarNovamente = teclado.next().charAt(0);
 
-        if (jogarNovamente == 's') {
-            JogoDaVelha.jogar(teclado);
-        } else if (jogarNovamente == 'n') {
-            System.out.print("--- FIM ---");
+            if (jogarNovamente == 's') {
+                JogoDaVelha.jogar(teclado);
+            } else if (jogarNovamente == 'n') {
+                System.out.print("--- FIM ---");
+            }
         }
     }
 
