@@ -17,13 +17,13 @@ public class JogoDaVelha {
         	if (jogoMapa.ganhou('O')) {
                 System.out.println("... PC GANHOU!");
                 break;
-            }
+            } 
             
         	
         	if (jogoMapa.ganhou('X')) {
                 System.out.println("... Jogador GANHOU!");
                 break;
-            }
+            } 
         	
         	
         	
@@ -41,24 +41,26 @@ public class JogoDaVelha {
                 X--;
             }
         }
-
-        if (!jogoMapa.ganhou('O') && !jogoMapa.ganhou('X')) {
-            System.out.println("O jogo empatou!!");
-
-            System.out.println("_____________________________");
-
-            System.out.println("Deseja jogar novamente (s/n)?");
-
-            char jogarNovamente = teclado.next().charAt(0);
-
-            if (jogarNovamente == 's') {
-                JogoDaVelha.jogar(teclado);
-            } else if (jogarNovamente == 'n') {
-                System.out.print("--- FIM ---");
-                jogoMapa.limpaMapa();
-            }
-        }
-
+        
+//        if((mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[2][0] == jogador) &&
+//                (mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[2][1] == jogador) &&
+//                (mapa[0][2] == jogador && mapa[1][2] == jogador && mapa[2][2] == jogador)) { 
+//            System.out.println("O jogo empatou!!");
+//
+//            System.out.println("_____________________________");
+//
+//            System.out.println("Deseja jogar novamente (s/n)?");
+//
+//            char jogarNovamente = teclado.next().charAt(0);
+//
+//            if (jogarNovamente == 's') {
+//                JogoDaVelha.jogar(teclado);
+//            } else if (jogarNovamente == 'n') {
+//                System.out.print("--- FIM ---");
+//                jogoMapa.limpaMapa();
+//            }
+//        }
+        
         System.out.println("_____________________________");
 
         System.out.println("Deseja jogar novamente (s/n)?");
