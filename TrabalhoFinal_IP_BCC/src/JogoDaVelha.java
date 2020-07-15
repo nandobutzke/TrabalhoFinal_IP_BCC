@@ -11,18 +11,7 @@ public class JogoDaVelha {
         int sorteio = jogoMapa.sortear(0, 2);
 
         for (int jogada = 1; jogada < 10; jogada++) {
-           
-            if (jogoMapa.ganhou('O')) {
-                System.out.println("... PC GANHOU!");
-                break;
-            } 
-            
-            
-            if (jogoMapa.ganhou('X')) {
-                System.out.println("... Jogador GANHOU!");
-                break;
-            }
-            
+
             if (sorteio == 0) {
                 jogoPC.joga();
                 jogoMapa.desenha(jogada);
@@ -33,11 +22,21 @@ public class JogoDaVelha {
                 jogoMapa.desenha(jogada);
                 sorteio--;
             }
+            
+            if (jogoMapa.ganhou('O')) {
+                System.out.println("... PC GANHOU!");
+                break;
+            }
+           
+            if (jogoMapa.ganhou('X')) {
+                System.out.println("... Jogador GANHOU!");
+                break;
+            }            
         }
         
         if(!jogoMapa.ganhou('O') && !jogoMapa.ganhou('X')) { 
             System.out.println("O jogo empatou!!");
-
+            
             System.out.println("_____________________________");
 
             System.out.println("Deseja jogar novamente (s/n)?");
@@ -72,7 +71,7 @@ public class JogoDaVelha {
         jogoMapa = new JogoDaVelha_Mapa();
         jogoJogador = new JogoDaVelha_Jogador(jogoMapa);
         jogoPC = new JogoDaVelha_PC(jogoMapa);
-
+        
         JogoDaVelha.jogar(tec);
 
         tec.close();
