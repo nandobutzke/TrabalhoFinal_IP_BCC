@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class JogoDaVelha_Jogador {
 
     public JogoDaVelha_Mapa mapa;
-    public static char letra = 'X';                //Usar letra 'X'
+    public static char letra = 'X';                
 
     public JogoDaVelha_Jogador(JogoDaVelha_Mapa mapa) {
         this.mapa = mapa;
@@ -22,9 +22,7 @@ public class JogoDaVelha_Jogador {
             }
         	
         } while (linha < 0 || linha > 2 || coluna < 0 || coluna > 2);
-        
-        
-        
+
         boolean verificar = mapa.jogar(linha, coluna, letra);
         
         if(!verificar) {
