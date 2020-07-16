@@ -7,35 +7,35 @@ public class JogoDaVelha {
 
     private static void jogar(Scanner teclado) {
 
-        jogoMapa.limpaMapa();
-        int sorteio = jogoMapa.sortear(0, 2);
+        jogoMapa.limpaMapa();							//Adiciona o caracter ' ' em todas as posições							
+        int sorteio = jogoMapa.sortear(0, 2);			//Variável que recebe método sortear (controla quem vai começar e a vez de cada jogador)
 
-        for (int jogada = 1; jogada < 10; jogada++) {
+        for (int jogada = 1; jogada < 10; jogada++) {			//Controla as jogadas
 
-            if (sorteio == 0) {
+            if (sorteio == 0) {				//jogada do PC
                 jogoPC.joga();
                 jogoMapa.desenha(jogada);
                 sorteio++;
             } else {
-                System.out.println("Jogador ..");
+                System.out.println("Jogador ..");				//Jogada do jogador
                 jogoJogador.joga(teclado);
                 jogoMapa.desenha(jogada);
                 sorteio--;
             }
             
-            if (jogoMapa.ganhou('O')) {
+            if (jogoMapa.ganhou('O')) {							//Verifica a cada joggada se o PC ganhou
                 System.out.println("... PC GANHOU!");
                 break;
             }
            
             if (jogoMapa.ganhou('X')) {
-                System.out.println("... Jogador GANHOU!");
+                System.out.println("... Jogador GANHOU!");		//Verifica a cada jogada se o Jogador ganhou
                 break;
             }            
         }
         
-        if(!jogoMapa.ganhou('O') && !jogoMapa.ganhou('X')) { 
-            System.out.println("O jogo empatou!!");
+        if(!jogoMapa.ganhou('O') && !jogoMapa.ganhou('X')) { 			//Em caso de empate, pergunta se deseja jogar novamente
+            System.out.println("O jogo empatou!!");						
             
             System.out.println("_____________________________");
 
@@ -51,7 +51,7 @@ public class JogoDaVelha {
             }
         } else {
         
-            System.out.println("_____________________________");
+            System.out.println("_____________________________");	//Controla se deseja jogar novamente quando um dos joadores vence a partida
 
             System.out.println("Deseja jogar novamente (s/n)?");
 
@@ -68,7 +68,7 @@ public class JogoDaVelha {
     public static void main(String[] args) {
         Scanner tec = new Scanner(System.in);
         
-        jogoMapa = new JogoDaVelha_Mapa();
+        jogoMapa = new JogoDaVelha_Mapa();					
         jogoJogador = new JogoDaVelha_Jogador(jogoMapa);
         jogoPC = new JogoDaVelha_PC(jogoMapa);
         
