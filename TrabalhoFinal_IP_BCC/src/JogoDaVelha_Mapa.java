@@ -25,22 +25,17 @@ public class JogoDaVelha_Mapa {
     }
 
     public boolean jogar(int l, int c, char jogador) {
-    	
-    	
+	
     	if(mapa[l][c] == ' ') {
         	mapa[l][c] = jogador;
             return true;
         } else {
             return false;
         }
-        
-        
 
     }
     
     public boolean ganhou(char jogador){
-        //for(int linha = 0; linha < 3; linha++)
-            //for(int coluna = 0; coluna < 3 ; coluna++)
                 
                 //coluna
                 if((mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[2][0] == jogador) ||
@@ -58,8 +53,7 @@ public class JogoDaVelha_Mapa {
                 if((mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador) ||
                     (mapa[0][2] == jogador && mapa[1][1] == jogador && mapa[2][0] == jogador))
                      return true;
-                
-                
+          
                 	return false;
    }
   
